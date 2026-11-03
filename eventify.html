@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - CRYPTONIX 2027</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="brand" href="#">EVENTIFY</a>
+    <nav>
+        <a href="#events">Events</a>
+        <button id="loginNav" onclick="openAuth('login')">Login</button>
+        <button id="signupNav" onclick="openAuth('signup')">Sign Up</button>
+        <button id="logoutNav" class="hidden" onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <p class="eyebrow">SRM AP • CYBERSECURITY TECH FEST</p>
+        <h1>Ideas meet<br><span>Innovation.</span></h1>
+        <p>Discover events, challenge yourself and be part of CRYPTONIX 2027.</p>
+        <button class="primary" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">
+            Explore Events
+        </button>
+        <button onclick="openAuth('signup')">Join Now</button>
+    </div>
+    <div class="hero-art">
+        <div class="circle">
+            <span>CRYPTONIX</span>
+            <strong>27</strong>
+            <small>TECH FEST</small>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div><strong id="statEvents">4</strong><span>Events</span></div>
+    <div><strong id="statSeats">160</strong><span>Available Seats</span></div>
+    <div><strong id="statRegistrations">0</strong><span>Registrations</span></div>
+</section>
+
+<section class="section" id="events">
+    <p class="eyebrow">FIND YOUR CHALLENGE</p>
+    <h2>Explore Events<span>.</span></h2>
+    <div class="event-grid" id="eventGrid"></div>
+</section>
+
+<section class="auth-section hidden" id="authSection">
+    <div class="auth-card">
+        <button class="close-button" onclick="closeAuth()">×</button>
+        <p class="eyebrow">WELCOME TO EVENTIFY</p>
+        <h2 id="authTitle">Login</h2>
+        <form id="authForm">
+            <div class="field hidden" id="nameField">
+                <label>Full Name</label>
+                <input id="fullName" type="text" placeholder="Your name">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input id="email" type="email" placeholder="Email address" required>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input id="password" type="password" placeholder="Password" required minlength="6">
+            </div>
+            <button class="primary full-width" type="submit" id="authSubmit">Login</button>
+        </form>
+        <p id="authSwitch"></p>
+        <p class="demo-note">Admin: admin@eventify.com / admin123</p>
+    </div>
+</section>
+
+<section class="dashboard hidden" id="studentDashboard">
+    <h2>Welcome, <span id="studentName"></span></h2>
+    <div class="panel">
+        <h3>My Registrations</h3>
+        <div id="myRegistrations"></div>
+    </div>
+</section>
+
+<section class="dashboard hidden" id="adminDashboard">
+    <h2>Admin Dashboard</h2>
+
+    <div class="admin-stats">
+        <div class="panel">Students <strong id="adminStudents">0</strong></div>
+        <div class="panel">Events <strong id="adminEvents">0</strong></div>
+        <div class="panel">Registrations <strong id="adminRegs">0</strong></div>
+        <div class="panel">Paid <strong id="adminPaid">0</strong></div>
+    </div>
+
+    <div class="panel">
+        <h3>Add New Event</h3>
+        <form id="eventForm">
+            <input id="eventName" placeholder="Event name" required>
+            <input id="eventDate" type="date" required>
+            <input id="eventVenue" placeholder="Venue" required>
+            <input id="eventFee" type="number" min="0" placeholder="Fee" required>
+            <input id="eventCapacity" type="number" min="1" placeholder="Capacity" required>
+            <button class="primary">Add Event</button>
+        </form>
+    </div>
+
+    <div class="panel">
+        <h3>Manage Events</h3>
+        <div id="adminEventList"></div>
+    </div>
+
+    <div class="panel">
+        <h3>All Registrations</h3>
+        <div id="adminRegistrationList"></div>
+    </div>
+</section>
+
+<footer>
+    <strong>EVENTIFY</strong>
+    <p>CRYPTONIX 2027 • Build. Compete. Connect.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
